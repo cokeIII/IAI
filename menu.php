@@ -3,7 +3,7 @@
         <div class="col-12">
             <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid px-0">
-                    <a class="navbar-brand font-weight-bolder ms-sm-3" href="https://demos.creative-tim.com/material-kit/index" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+                    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
                         IAI Train
                     </a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
                                         <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
                                             Account
                                         </h6>
-                                        <a href="./pages/sign-in.html" class="dropdown-item border-radius-md">
+                                        <a href="sign-in.php" class="dropdown-item border-radius-md">
                                             <span>Sign In</span>
                                         </a>
                                     </div>
@@ -403,7 +403,7 @@
                                 </a>
                             </li>
                             <li class="nav-item my-auto ms-3 ms-lg-0">
-                                <a href="./pages/sign-in.html" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Sign In</a>
+                                <a href="sign-in.php" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Sign In</a>
                             </li>
                         </ul>
                     </div>
