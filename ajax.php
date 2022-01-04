@@ -10,4 +10,13 @@ if ($_POST["act"] == "getDistrict") {
         $opt .= '<option value="' . $row["id"] . '">' . $row["name_th"] . '</option>';
     }
     echo $opt;
+} else if($_POST["act"] == "getSubDistrict"){
+    $code_district = $_POST["districtCode"];
+    $opt = "";
+    $sql = "select * from districts where amphure_id = '$code_district'";
+    $res = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($res)) {
+        $opt .= '<option value="' . $row["id"] . '">' . $row["name_th"] . '</option>';
+    }
+    echo $opt;
 }

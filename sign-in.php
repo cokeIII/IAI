@@ -29,7 +29,7 @@
           <div class="card z-index-0 fadeIn3 fadeInBottom">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">IAI training</h4>
               </div>
             </div>
             <div class="card-body">
@@ -43,11 +43,11 @@
                   <input type="password" class="form-control">
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                  <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">เข้าสู่ระบบ</button>
                 </div>
                 <p class="mt-4 text-sm text-center">
                   Don't have an account?
-                  <a href="sign-up.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                  <a href="sign-up.php" class="text-primary text-gradient font-weight-bold">สมัครสมาชิก</a>
                 </p>
               </form>
             </div>
