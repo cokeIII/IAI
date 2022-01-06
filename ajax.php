@@ -1,6 +1,6 @@
 <?php
 require_once "connect.php";
-
+header('Content-Type: text/html; charset=UTF-8');
 if ($_POST["act"] == "getDistrict") {
     $code_provinces = $_POST["provinceCode"];
     $opt = "";
