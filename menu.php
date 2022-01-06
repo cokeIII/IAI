@@ -1,9 +1,10 @@
+<?php session_start(); ?>
 <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
         <div class="col-12">
             <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid px-0">
-                    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+                    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.php" rel="tooltip" title="index" data-placement="bottom">
                         IAI training
                     </a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +16,7 @@
                     </button>
                     <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
                         <ul class="navbar-nav navbar-nav-hover ms-auto">
-                            <li class="nav-item dropdown dropdown-hover mx-2">
+                            <!-- <li class="nav-item dropdown dropdown-hover mx-2">
                                 <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
                                     Pages
@@ -395,16 +396,125 @@
                                     </div>
 
                                 </ul>
-                            </li>
-                            <li class="nav-item ms-lg-auto">
-                                <a class="nav-link nav-link-icon me-2" href="https://github.com/creativetimofficial/material-kit" target="_blank">
-                                    <i class="fa fa-github me-1"></i>
-                                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Star us on Github">Github</p>
+                            </li> -->
+                            <!-- <li class="nav-item ms-lg-auto">
+                                <a class="nav-link nav-link-icon me-2" href="">
+                                    <i class="fas fa-user"></i>
+                                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit profile">Github</p>
                                 </a>
-                            </li>
-                            <li class="nav-item my-auto ms-3 ms-lg-0">
-                                <a href="sign-in.php" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">เข้าสู่ระบบ</a>
-                            </li>
+                            </li> -->
+                            <?php if (!empty($_SESSION["id_card"])) { ?>
+                                <li class="nav-item my-auto ms-3 ms-lg-0">
+                                    <?php if ($_SESSION["status"] == "user") { ?>
+                                        <a href="home.php" class="mb-0 me-1 mt-2 mt-md-0"><i class="fas fa-home m-1"></i>หน้าแรก</a>
+                                    <?php } else if ($_SESSION["status"] == "admin") { ?>
+                                        <a href="home_admin.php" class="mb-0 me-1 mt-2 mt-md-0"><i class="fas fa-home m-1"></i>หน้าแรก</a>
+                                    <?php } ?>
+                                </li>
+                                <li class="nav-item dropdown dropdown-hover mx-2">
+                                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-chalkboard-teacher m-1"></i> อบรม
+                                        <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+                                        <div class="d-none d-lg-block">
+                                            <ul class="list-group">
+                                                <?php if ($_SESSION["status"] == "admin") { ?>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="addTrain.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                                                <i class="fas fa-plus-square m-1"></i> เพิ่มรายการอบรม
+                                                            </h6>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listTrain_admin.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-list m-1"></i> รายการอบรม</h6>
+                                                        </a>
+                                                    </li>
+                                                <?php } else { ?>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listTrain.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-list m-1"></i> รายการอบรม</h6>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listTrain_regis.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-list m-1"></i> รายการที่ลงทะเบียน</h6>
+                                                        </a>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                        <div class="d-lg-none">
+                                            <ul class="list-group">
+                                                <?php if ($_SESSION["status"] == "admin") { ?>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="addTrain.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                                                <i class="fas fa-plus-square m-1"></i> เพิ่มรายการอบรม
+                                                            </h6>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listTrain_admin.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-list m-1"></i> รายการอบรม</h6>
+                                                        </a>
+                                                    </li>
+                                                <?php } else { ?>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listTrain.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-list m-1"></i> รายการอบรม</h6>
+                                                        </a>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown dropdown-hover mx-2">
+                                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-user m-1"></i> <?php echo $_SESSION["username"]; ?>
+                                        <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+                                        <div class="d-none d-lg-block">
+                                            <ul class="list-group">
+                                                <li class="nav-item list-group-item border-0 p-0">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="editProfile.php">
+                                                        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-user-edit m-1"></i> แก้ไขข้อมูลส่วนตัว</h6>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item list-group-item border-0 p-0">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="logout.php">
+                                                        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-sign-out-alt m-1"></i> ออกจากระบบ</h6>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="d-lg-none">
+                                            <ul class="list-group">
+                                                <li class="nav-item list-group-item border-0 p-0">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="editProfile.php">
+                                                        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-user-edit m-1"></i> แก้ไขข้อมูลส่วนตัว</h6>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item list-group-item border-0 p-0">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="logout.php">
+                                                        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"><i class="fas fa-sign-out-alt m-1"></i> ออกจากระบบ</h6>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </li>
+
+                            <?php } ?>
+                            <?php if (empty($_SESSION["id_card"])) { ?>
+                                <li class="nav-item my-auto ms-3 ms-lg-0">
+                                    <a href="sign-in.php" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">เข้าสู่ระบบ</a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

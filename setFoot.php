@@ -1,6 +1,10 @@
+<hr>
 <footer class="footer pt-5 mt-5">
     <div class="container">
-        <div class=" row">
+        <divc class="row">
+            <div class="col-md-12"></div>
+        </div>
+        <!-- <div class=" row">
             <div class="col-md-3 mb-4 ms-auto">
                 <div>
                     <a href="https://www.creative-tim.com/product/material-kit">
@@ -168,7 +172,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </footer>
 <!--   Core JS Files   -->
@@ -194,3 +198,5 @@
 <script src="./assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
 <script src="./assets/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./assets/js/jquery.searcher.js"></script>
