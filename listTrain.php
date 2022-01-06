@@ -100,7 +100,7 @@
                                 select cr.course_id from course_regis cr
                                 inner join course c on c.course_id = cr.course_id
                                 where  cr.id_card = '$id_card'
-                            )";
+                            ) and status != 'off'";
                             $res = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_array($res)) {
                             ?>
