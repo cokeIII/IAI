@@ -146,7 +146,7 @@
                                                     <a class="btn btn-warning btn-sm mt-2" href="editCourse.php?course_id=<?php echo $row["course_id"]; ?>">แก้ไข</a>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <a class="btn btn-danger btn-sm mt-2" href="delCourse.php?course_id=<?php echo $row["course_id"]; ?>">ลบ</a>
+                                                    <button class="btn btn-danger btn-sm mt-2 btnDelCourse" course_id="<?php echo $row["course_id"]; ?>" type="button">ลบ</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -183,6 +183,20 @@
 </html>
 <script>
     $(document).ready(function() {
+        $(".btnDelCourse").click(function() {
+            let course_id = $(this).attr("course_id")
+            Swal.fire({
+                title: 'ต้องการลบรายการใช่หรือไม่ ?',
+                showCancelButton: true,
+                confirmButtonText: 'ลบ',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.redirect('delCourse.php', {'course_id': course_id});
+                }
+            })
+        })
+
         $(document).on("change", "input[type='radio']", function() {
             $.ajax({
                 type: "POST",
