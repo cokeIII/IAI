@@ -411,6 +411,52 @@
                                         <a href="home_admin.php" class="mb-0 me-1 mt-2 mt-md-0"><i class="fas fa-home m-1"></i>หน้าแรก</a>
                                     <?php } ?>
                                 </li>
+                                <?php if ($_SESSION["status"] == "admin") { ?>
+                                    <li class="nav-item dropdown dropdown-hover mx-2">
+                                        <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-users m-1"></i> เจ้าหน้าที่
+                                            <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+                                            <div class="d-none d-lg-block">
+                                                <ul class="list-group">
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="addEmp_admin.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                                                <i class="fas fa-plus-square m-1"></i> เพิ่มเจ้าหน้าที่
+                                                            </h6>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listEmp_admin.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                                                <i class="fas fa-list m-1"></i> รายการเจ้าหน้าที่
+                                                            </h6>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="d-lg-none">
+                                                <ul class="list-group">
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="addEmp_admin.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                                                <i class="fas fa-plus-square m-1"></i> เพิ่มเจ้าหน้าที่
+                                                            </h6>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item list-group-item border-0 p-0">
+                                                        <a class="dropdown-item py-2 ps-3 border-radius-md" href="listEmp_admin.php">
+                                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                                                <i class="fas fa-list m-1"></i> รายการเจ้าหน้าที่
+                                                            </h6>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                <?php } ?>
                                 <li class="nav-item dropdown dropdown-hover mx-2">
                                     <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-chalkboard-teacher m-1"></i> อบรม
