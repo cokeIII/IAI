@@ -140,11 +140,13 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <a href="file_uploads/<?php echo $row["course_file"]; ?>" target="_blank">ดูเอกสารการอบรม</a>
+
                                                 <div class="col-md-6">
-                                                    <button class="btn btn-warning btn-sm mt-2" type="button">แก้ไข</button>
+                                                    <a class="btn btn-warning btn-sm mt-2" href="editCourse.php?course_id=<?php echo $row["course_id"]; ?>">แก้ไข</a>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button class="btn btn-danger btn-sm mt-2" type="button">ลบ</button>
+                                                    <a class="btn btn-danger btn-sm mt-2" href="delCourse.php?course_id=<?php echo $row["course_id"]; ?>">ลบ</a>
                                                 </div>
                                             </div>
                                         </div>

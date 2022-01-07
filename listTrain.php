@@ -97,9 +97,8 @@
                             <?php
                             $sql = "select * from course 
                             where course_id not in(
-                                select cr.course_id from course_regis cr
-                                inner join course c on c.course_id = cr.course_id
-                                where  cr.id_card = '$id_card'
+                                select course_id from course_regis
+                                where  id_card = '$id_card'
                             ) and status != 'off'";
                             $res = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_array($res)) {
@@ -140,7 +139,9 @@
                                         <h6><button class="btn btn-outline-primary" id="payDetail" course_id="<?php echo $row["course_id"]; ?>">รายละเอียดการชำระเงิน</button></h6>
                                         <div class="d-flex flex-column mt-2">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
+                                                    <a href="file_uploads/<?php echo $row["course_file"]; ?>" target="_blank">ดูเอกสารการอบรม</a>
+
                                                     <form action="courseRegis.php" method="post">
                                                         <input type="hidden" name="course_id" value="<?php echo $row["course_id"]; ?>">
                                                         <button class="btn btn-primary btn-sm mt-2" type="submit" course_id="<?php echo $row["course_id"]; ?>">ลงทะเบียน</button>
